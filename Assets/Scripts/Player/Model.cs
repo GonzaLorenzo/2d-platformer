@@ -117,16 +117,7 @@ public class Model : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.W))
             {
                 isJumping = false;
-            }
-
-            if(Input.GetKeyUp(KeyCode.X)){
-                TakeDamage(1);
-            }
-
-            if(Input.GetKeyUp(KeyCode.H)){
-                AddLife(1);
-            }
-            
+            }        
         }
     }
 

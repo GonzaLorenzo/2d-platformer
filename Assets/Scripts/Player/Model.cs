@@ -63,6 +63,8 @@ public class Model : MonoBehaviour
 
         onGetDmg(_currentHp);
 
+        _rb.AddForce(Vector2.left * 3);
+
         if(_currentHp <= 0)
         {
             Death();

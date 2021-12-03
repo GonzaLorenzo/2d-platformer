@@ -26,6 +26,7 @@ public class Model : MonoBehaviour
     Rigidbody2D _rb;
     private bool isJumping;
     private bool facingRight = true;
+    private bool canMove = true;
     #endregion MovementVariables
 
     #region Events
@@ -70,47 +71,57 @@ public class Model : MonoBehaviour
 
     public void Movement()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
-
-        _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
-        onWalk(!Mathf.Approximately(moveInput, 0f));
-        onJump(!GroundSensor.IsGrounded());
-
-        if(!facingRight && moveInput > 0)
+        if(canMove)
         {
-            FlipScale();
-        }
-        else if (facingRight && moveInput < 0)
-        {
-            FlipScale();
+            moveInput = Input.GetAxisRaw("Horizontal");
+
+            _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
+            onWalk(!Mathf.Approximately(moveInput, 0f));
+            onJump(!GroundSensor.IsGrounded());
+
+            if(!facingRight && moveInput > 0)
+            {
+                FlipScale();
+            }
+            else if (facingRight && moveInput < 0)
+            {
+                FlipScale();
+            }
         }
     }
 
     public void UpdateMovement()
     {
-        if (GroundSensor.IsGrounded() && Input.GetKeyDown(KeyCode.W))
+        if(canMove)
         {
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            _rb.velocity = Vector2.up * jumpForce;
-        }
-
-        if (Input.GetKey(KeyCode.W) && isJumping)
-        {
-            if(jumpTimeCounter > 0)
+            if (GroundSensor.IsGrounded() && Input.GetKeyDown(KeyCode.W))
             {
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
                 _rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime;
             }
-            else
+
+            if (Input.GetKey(KeyCode.W) && isJumping)
+            {
+                if(jumpTimeCounter > 0)
+                {
+                    _rb.velocity = Vector2.up * jumpForce;
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }     
+            }
+            
+            if(Input.GetKeyUp(KeyCode.W))
             {
                 isJumping = false;
-            }     
-        }
-        
-        if(Input.GetKeyUp(KeyCode.W))
-        {
-            isJumping = false;
+            }
+
+            if(Input.GetKeyUp(KeyCode.X)){
+                TakeDamage(1);
+            }
         }
     }
 
@@ -124,7 +135,7 @@ public class Model : MonoBehaviour
     
     public void Death()
     {
-        Debug.Log("aia");
+        canMove = false;
         onDeath();
     }
     

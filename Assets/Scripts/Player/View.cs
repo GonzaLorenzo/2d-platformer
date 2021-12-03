@@ -24,11 +24,11 @@ public class View : MonoBehaviour
         {
             if (i < value)
             {
-                HealthIcons[i].enabled = true;
+                HealthIcons[i].GetComponent<UIHeart>().RemoveHeart(false);
             }
             else
             {
-                HealthIcons[i].enabled = false;
+                HealthIcons[i].GetComponent<UIHeart>().RemoveHeart(true);
             }
         }
     }

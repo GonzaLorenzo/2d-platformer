@@ -45,6 +45,16 @@ public class View : MonoBehaviour
 
     public void DeathAnimation()
     {
-        _myAnimator.SetTrigger("Death");
+        _myAnimator.SetBool("IsDead", true);
+    }
+
+    public void WalkAnimation(bool value)
+    {
+        _myAnimator.SetBool("IsWalking", value);
+    }
+
+    public void JumpAnimation(bool value)
+    {
+        _myAnimator.SetBool("IsJumping", value);
     }
 }

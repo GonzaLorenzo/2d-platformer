@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IController
-{
-    void OnUpdate();
-    void OnFixedUpdate();
+public interface IObserver
+{ 
+    void Notify(string action);
 }

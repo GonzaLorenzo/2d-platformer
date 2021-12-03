@@ -13,11 +13,17 @@ public class Controller : IController
         _m.onGetDmg += v.UpdateHudLife;
         _m.onDeath += v.DeathMaterial;
         _m.onDeath += v.DeathAnimation;
-    }
-   public void OnUpdate()
-    {
-        
+        _m.onWalk += v.WalkAnimation;
+        _m.onJump += v.JumpAnimation;
     }
 
-    
+    public void OnUpdate()
+    {
+        _m.UpdateMovement();
+    }
+
+    public void OnFixedUpdate()
+    {
+        _m.Movement();
+    } 
 }

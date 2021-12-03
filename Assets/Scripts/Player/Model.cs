@@ -13,14 +13,18 @@ public class Model : MonoBehaviour
     private float speed;
     private float moveInput;
     private Vector2 velocityVector;
-    
+    [SerializeField]
+    private float jumpForce;
     private Vector3 AuxScale;
     private bool isGrounded;
     [SerializeField]
-    private GroundSensor    GroundSensor;
+    private GroundSensor GroundSensor;
+    private float jumpTimeCounter;
     [SerializeField]
+    private float jumpTime;
     private LayerMask Ground;
     Rigidbody2D _rb;
+    private bool isJumping;
     private bool facingRight = true;
     #endregion MovementVariables
 
@@ -86,7 +90,27 @@ public class Model : MonoBehaviour
     {
         if (GroundSensor.IsGrounded() && Input.GetKeyDown(KeyCode.W))
         {
-            _rb.velocity = Vector2.up * 21;
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            _rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if (Input.GetKey(KeyCode.W) && isJumping)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                _rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }     
+        }
+        
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            isJumping = false;
         }
     }
 

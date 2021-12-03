@@ -122,6 +122,11 @@ public class Model : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.X)){
                 TakeDamage(1);
             }
+
+            if(Input.GetKeyUp(KeyCode.H)){
+                AddLife(1);
+            }
+            
         }
     }
 
@@ -133,6 +138,16 @@ public class Model : MonoBehaviour
         transform.localScale = AuxScale;
     }
     
+    public void AddLife(float dmg)
+    {
+        _currentHp += dmg;
+        if(_currentHp > 3)
+        {
+            _currentHp = 3;
+        }
+        onGetDmg(_currentHp);
+    }
+
     public void Death()
     {
         canMove = false;

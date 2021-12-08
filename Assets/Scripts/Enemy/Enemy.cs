@@ -16,8 +16,7 @@ public abstract class Enemy  : MonoBehaviour
         transform.position += actualdir * speed * Time.deltaTime;
 
         if(dir.magnitude < 0.1f)
-        {
-            
+        {    
             _currentwaypoint++;
             if (_currentwaypoint > waypoints.Count - 1)
                 _currentwaypoint = 0;
@@ -30,5 +29,17 @@ public abstract class Enemy  : MonoBehaviour
         AuxScale = transform.localScale;
         AuxScale.x = -AuxScale.x;
         transform.localScale = AuxScale;
+    }
+
+    public Enemy SetPos (Vector3 newPos)
+    {
+        transform.position = newPos;
+        return this;
+    }
+
+    public Enemy SetWaypoints (List<Transform> newWaypoints)
+    {
+        waypoints = newWaypoints;
+        return this;
     }
 }

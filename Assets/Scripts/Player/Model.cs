@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -30,11 +30,16 @@ public class Model : MonoBehaviour
     #endregion MovementVariables
 
     #region Events
-    public event Action<float> onGetDmg = delegate { };
+    public event Action<float> onGetDmgHUD = delegate { };
+    public event Action<bool> onGetDmg = delegate { };
     public event Action onDeath = delegate { };
     public event Action<bool> onWalk = delegate { };
     public event Action<bool> onJump = delegate { };
     #endregion Events
+
+    private float KnockbackXForce = 11f;
+    private float KnockbackYForce = 7f;
+    private float knockbackTime = 0.4f;
 
     void Awake()
     {
@@ -61,13 +66,16 @@ public class Model : MonoBehaviour
     {
         _currentHp -= dmg;
 
-        onGetDmg(_currentHp);
-
-        _rb.AddForce(Vector2.left * 3);
+        onGetDmgHUD(_currentHp);
 
         if(_currentHp <= 0)
         {
             Death();
+            _rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            StartCoroutine(DoKnockback(knockbackTime));
         }
     }
 
@@ -119,7 +127,12 @@ public class Model : MonoBehaviour
             if(Input.GetKeyUp(KeyCode.W))
             {
                 isJumping = false;
-            }        
+            }    
+
+            if(Input.GetKeyUp(KeyCode.X))
+            {
+                StartCoroutine(DoKnockback(knockbackTime));
+            }    
         }
     }
 
@@ -138,13 +151,29 @@ public class Model : MonoBehaviour
         {
             _currentHp = 3;
         }
-        onGetDmg(_currentHp);
+        onGetDmgHUD(_currentHp);
     }
 
     public void Death()
     {
         canMove = false;
         onDeath();
+    }
+    
+    public IEnumerator DoKnockback(float knockbackTime)
+    {
+        onGetDmg(true);   
+        canMove = false;
+        _rb.velocity = Vector2.zero;
+
+        float knockX = Mathf.Sign(moveInput);
+   
+        _rb.AddForce(new Vector2(-knockX*KnockbackXForce,KnockbackYForce),ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(knockbackTime);
+        _rb.velocity = Vector2.zero;
+        canMove = true;
+        onGetDmg(false); 
     }
     
 }

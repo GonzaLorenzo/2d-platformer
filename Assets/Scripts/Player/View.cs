@@ -38,9 +38,9 @@ public class View : MonoBehaviour
         _myMaterial.color = Color.red;
     }
 
-    public void HurtAnimation()
+    public void HurtAnimation(bool value)
     {
-        _myAnimator.SetTrigger("Hurt");
+        _myAnimator.SetBool("IsHurt", value);
     }
 
     public void DeathAnimation()

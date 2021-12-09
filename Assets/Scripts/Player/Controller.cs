@@ -10,11 +10,12 @@ public class Controller : IController
     {
         _m = m;
 
-        _m.onGetDmg += v.UpdateHudLife;
-        _m.onDeath += v.DeathMaterial;
-        _m.onDeath += v.DeathAnimation;
-        _m.onWalk += v.WalkAnimation;
-        _m.onJump += v.JumpAnimation;
+        _m.onGetDmgHUD  +=  v.UpdateHudLife;
+        _m.onGetDmg     +=  v.HurtAnimation;
+        _m.onDeath      +=  v.DeathMaterial;
+        _m.onDeath      +=  v.DeathAnimation;
+        _m.onWalk       +=  v.WalkAnimation;
+        _m.onJump       +=  v.JumpAnimation;
     }
 
     public void OnUpdate()

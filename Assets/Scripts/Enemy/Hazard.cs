@@ -9,7 +9,7 @@ public class Hazard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       Model HitEntity = collision.GetComponent<Model>();
+        Model HitEntity = collision.GetComponent<Model>();
         
         if(HitEntity != null)
         {

@@ -13,13 +13,17 @@ public class EnemySpawner : MonoBehaviour
     public List<Transform> enemy1Waypoints;
     public List<Transform> enemy2Waypoints;
     public List<Transform> enemy3Waypoints;
+    private GameObject parent;
 
     void Start()
     {
-        Instantiate(mushroomPref).SetPos(enemy1Pos).SetWaypoints(enemy1Waypoints);
+        
+        parent = GameObject.Find("MainGame");
 
-        Instantiate(mushroomPref).SetPos(enemy2Pos).SetWaypoints(enemy2Waypoints);
+        Instantiate(mushroomPref, parent.transform).SetPos(enemy1Pos).SetWaypoints(enemy1Waypoints);
 
-        //Instantiate(mushroomPref).SetPos(enemy3Pos).SetWaypoints(enemy3Waypoints);
+        Instantiate(mushroomPref, parent.transform).SetPos(enemy2Pos).SetWaypoints(enemy2Waypoints);
+
+        Instantiate(mushroomPref, parent.transform).SetPos(enemy3Pos).SetWaypoints(enemy3Waypoints);
     }
 }

@@ -7,7 +7,7 @@ public class Model : MonoBehaviour
     IController _myController;
     private float baseHp = 3;
     private float _currentHp;
-
+    public bool canKill = true;
     #region MovementVariables
     [SerializeField]
     private float speed;
@@ -164,6 +164,7 @@ public class Model : MonoBehaviour
     {
         onGetDmg(true);   
         canMove = false;
+        canKill = false;
         _rb.velocity = Vector2.zero;
 
         float knockX = Mathf.Sign(moveInput);
@@ -172,6 +173,7 @@ public class Model : MonoBehaviour
 
         yield return new WaitForSeconds(knockbackTime);
         _rb.velocity = Vector2.zero;
+        canKill = true;
         canMove = true;
         onGetDmg(false); 
     }

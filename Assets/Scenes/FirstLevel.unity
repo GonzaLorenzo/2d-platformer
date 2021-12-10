@@ -17308,16 +17308,17 @@ MonoBehaviour:
   - {fileID: 428786331}
   SecondLvlEnemy1Pos: {x: 0, y: 0, z: 0}
   SecondLvlEnemy2Pos: {x: 0, y: 0, z: 0}
-  SecondLvlEnemy3Pos: {x: 0, y: 0, z: 0}
   SecondLvlEnemy1Waypoints: []
   SecondLvlEnemy2Waypoints: []
-  SecondLvlEnemy3Waypoints: []
   ThirdLvlEnemy1Pos: {x: 0, y: 0, z: 0}
   ThirdLvlEnemy2Pos: {x: 0, y: 0, z: 0}
   ThirdLvlEnemy3Pos: {x: 0, y: 0, z: 0}
+  ThirdLvlEnemy4Pos: {x: 0, y: 0, z: 0}
+  ThirdLvlEnemy5Pos: {x: 0, y: 0, z: 0}
   ThirdLvlEnemy1Waypoints: []
   ThirdLvlEnemy2Waypoints: []
-  ThirdLvlEnemy3Waypoints: []
+  ThirdLvlEnemy4Waypoints: []
+  ThirdLvlEnemy5Waypoints: []
 --- !u!4 &1532499092
 Transform:
   m_ObjectHideFlags: 0
@@ -18862,6 +18863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_UsedByEffector
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062912828831044078, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}

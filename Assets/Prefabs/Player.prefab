@@ -227,10 +227,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canKill: 1
-  speed: 5
-  jumpForce: 7
+  _currentSpeed: 0
+  AuxScale: {x: 0, y: 0, z: 0}
   GroundSensor: {fileID: 5062912828831044079}
-  jumpTime: 0.35
+  _currentJumpTime: 0
 --- !u!114 &5062912828332319852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95270915af842a840b33fca173682624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasManager: {fileID: 0}
   HealthIcons:
   - {fileID: 0}
   - {fileID: 0}
@@ -258,7 +259,7 @@ GameObject:
   - component: {fileID: 5062912828831044065}
   - component: {fileID: 5062912828831044064}
   - component: {fileID: 5062912828831044079}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: GroundSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

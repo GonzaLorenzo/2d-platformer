@@ -207,10 +207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1793724850}
     m_Modifications:
-    - target: {fileID: 2048422379, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5062912828332319851, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -268,9 +264,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5062912828332319852, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
-      propertyPath: HealthIcons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: canvasManager
+      value: 
+      objectReference: {fileID: 706419768}
     - target: {fileID: 5062912828332319852, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
       propertyPath: HealthIcons.Array.data[0]
@@ -286,25 +282,10 @@ PrefabInstance:
       propertyPath: HealthIcons.Array.data[2]
       value: 
       objectReference: {fileID: 1566272522}
-    - target: {fileID: 5062912828332319852, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: canvasManager
-      value: 
-      objectReference: {fileID: 706419768}
     - target: {fileID: 5062912828332319862, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5062912828831044078, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5062912828831044078, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}

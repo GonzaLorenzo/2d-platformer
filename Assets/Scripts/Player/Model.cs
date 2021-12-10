@@ -5,23 +5,24 @@ using System;
 public class Model : MonoBehaviour
 {
     IController _myController;
+    ModelController _myStats;
     private float baseHp = 3;
     private float _currentHp;
+    private float _jumpTime = 0.35f; 
     public bool canKill = true;
     #region MovementVariables
     [SerializeField]
-    private float speed;
+    private float _currentSpeed;
     private float moveInput;
     private Vector2 velocityVector;
     [SerializeField]
-    private float jumpForce;
     private Vector3 AuxScale;
     private bool isGrounded;
     [SerializeField]
     private GroundSensor GroundSensor;
     private float jumpTimeCounter;
     [SerializeField]
-    private float jumpTime;
+    private float _currentJumpTime;
     private LayerMask Ground;
     Rigidbody2D _rb;
     private bool isJumping;
@@ -36,9 +37,6 @@ public class Model : MonoBehaviour
     public event Action<bool> onWalk = delegate { };
     public event Action<bool> onJump = delegate { };
     #endregion Events
-
-    private float KnockbackXForce = 11f;
-    private float KnockbackYForce = 7f;
     private float knockbackTime = 0.4f;
 
     void Awake()
@@ -49,6 +47,9 @@ public class Model : MonoBehaviour
 
     void Start()
     {
+        //_currentJumpTime = _startingJumpTime;
+        //_currentSpeed = _startingSpeed;
+        _myStats = new ModelStats();
         _myController = new Controller(this, GetComponent<View>());
     }
 
@@ -85,7 +86,7 @@ public class Model : MonoBehaviour
         {
             moveInput = Input.GetAxisRaw("Horizontal");
 
-            _rb.velocity = new Vector2(moveInput * speed, _rb.velocity.y);
+            _rb.velocity = new Vector2(moveInput * _myStats.GetSpeed(), _rb.velocity.y);
             onWalk(!Mathf.Approximately(moveInput, 0f));
             onJump(!GroundSensor.IsGrounded());
 
@@ -107,15 +108,15 @@ public class Model : MonoBehaviour
             if (GroundSensor.IsGrounded() && Input.GetKeyDown(KeyCode.W))
             {
                 isJumping = true;
-                jumpTimeCounter = jumpTime;
-                _rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter = _jumpTime;
+                _rb.velocity = Vector2.up * _myStats.GetJumpForce();
             }
 
             if (Input.GetKey(KeyCode.W) && isJumping)
             {
                 if(jumpTimeCounter > 0)
                 {
-                    _rb.velocity = Vector2.up * jumpForce;
+                    _rb.velocity = Vector2.up * _myStats.GetJumpForce();
                     jumpTimeCounter -= Time.deltaTime;
                 }
                 else
@@ -170,7 +171,7 @@ public class Model : MonoBehaviour
 
         float knockX = Mathf.Sign(moveInput);
    
-        _rb.AddForce(new Vector2(-knockX*KnockbackXForce,KnockbackYForce),ForceMode2D.Impulse);
+        _rb.AddForce(new Vector2(-knockX*_myStats.GetKnockbackXForce(),_myStats.GetKnockbackYForce()),ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(knockbackTime);
         _rb.velocity = Vector2.zero;
@@ -179,4 +180,10 @@ public class Model : MonoBehaviour
         onGetDmg(false); 
     }
     
+    public void GetNewStats(ModelController stats)
+    {
+        {
+            _myStats = stats;
+        }
+    }
 }

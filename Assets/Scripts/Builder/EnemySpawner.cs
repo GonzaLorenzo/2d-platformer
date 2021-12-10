@@ -29,9 +29,12 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 ThirdLvlEnemy1Pos;   
     public Vector3 ThirdLvlEnemy2Pos;
     public Vector3 ThirdLvlEnemy3Pos;
+    public Vector3 ThirdLvlEnemy4Pos;
+    public Vector3 ThirdLvlEnemy5Pos;
     public List<Transform> ThirdLvlEnemy1Waypoints;
     public List<Transform> ThirdLvlEnemy2Waypoints;
-    public List<Transform> ThirdLvlEnemy3Waypoints;
+    public List<Transform> ThirdLvlEnemy4Waypoints;
+    public List<Transform> ThirdLvlEnemy5Waypoints;
 
     void Awake()
     {
@@ -73,10 +76,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void InstantiateThirdLevel()
     {
-        //Instantiate(mushroomPref, parent.transform).SetPos(enemy1Pos).SetWaypoints(enemy1Waypoints);
+        Instantiate(mushroomPref, parent.transform).SetPos(ThirdLvlEnemy1Pos).SetWaypoints(ThirdLvlEnemy1Waypoints);
 
-        //Instantiate(mushroomPref, parent.transform).SetPos(enemy2Pos).SetWaypoints(enemy2Waypoints);
+        Instantiate(batPref, parent.transform).SetPos(ThirdLvlEnemy2Pos).SetWaypoints(ThirdLvlEnemy2Waypoints);
 
-        //Instantiate(mushroomPref, parent.transform).SetPos(enemy3Pos).SetWaypoints(enemy3Waypoints);
+        Instantiate(goblinPref, parent.transform).SetPos(ThirdLvlEnemy3Pos);
+
+        Instantiate(mushroomPref, parent.transform).SetPos(ThirdLvlEnemy4Pos).SetWaypoints(ThirdLvlEnemy4Waypoints);
+
+        Instantiate(goblinPref, parent.transform).SetPos(ThirdLvlEnemy5Pos).SetSize(new Vector3 (-1,1,1));
     }
 }

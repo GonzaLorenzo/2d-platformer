@@ -7,6 +7,7 @@ public class Model : MonoBehaviour
     IController _myController;
     ModelController _myStats;
     private float baseHp = 3;
+    private bool canTakeDamage = true;
     private float _currentHp;
     private float _jumpTime = 0.35f; 
     public bool canKill = true;
@@ -65,18 +66,21 @@ public class Model : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        _currentHp -= dmg;
-
-        onGetDmgHUD(_currentHp);
-
-        if(_currentHp <= 0)
+        if(canTakeDamage)
         {
-            Death();
-            _rb.velocity = Vector2.zero;
-        }
-        else
-        {
-            StartCoroutine(DoKnockback(knockbackTime));
+            _currentHp -= dmg;
+
+            onGetDmgHUD(_currentHp);
+
+            if(_currentHp <= 0)
+            {
+                Death();
+                _rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                StartCoroutine(DoKnockback(knockbackTime));
+            }
         }
     }
 
@@ -167,6 +171,7 @@ public class Model : MonoBehaviour
         onGetDmg(true);   
         canMove = false;
         canKill = false;
+        canTakeDamage = false;
         _rb.velocity = Vector2.zero;
 
         float knockX = Mathf.Sign(moveInput);
@@ -177,6 +182,7 @@ public class Model : MonoBehaviour
         _rb.velocity = Vector2.zero;
         canKill = true;
         canMove = true;
+        canTakeDamage = true;
         onGetDmg(false); 
     }
     

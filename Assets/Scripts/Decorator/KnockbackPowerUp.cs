@@ -15,12 +15,12 @@ public class KnockbackPowerUp : ModelDecorator
 
     public override float GetKnockbackXForce()
     {
-        return _modelController.GetKnockbackXForce() * 0.2f;
+        return _modelController.GetKnockbackXForce() * 0.6f;
     }
 
     public override float GetKnockbackYForce()
     {
-        return _modelController.GetKnockbackYForce() * 0.2f;
+        return _modelController.GetKnockbackYForce() * 0.6f;
     }
 
     public override float GetSpeed()

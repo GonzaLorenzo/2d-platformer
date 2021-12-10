@@ -11,12 +11,12 @@ public class Goblin : Enemy
     private Transform shotPoint;
     public LayerMask targetMask;
     public LayerMask obstacleMask;
-    private float _viewRadius = 5f;
+    private float _viewRadius = 15f;
     private Collider2D _target;
     private bool canShoot = false;
     private float _timePassed;
     private float _shootTime = 1.5f;
-
+    private Vector2 YOffset = new Vector2(0,0.4f);
     void Start()
     {
         _timePassed = _shootTime;
@@ -24,7 +24,7 @@ public class Goblin : Enemy
 
     // Update is called once per frame
     void Update()
-    {
+    {     
         FieldOfView();
         Shoot();
     }
@@ -73,7 +73,7 @@ public class Goblin : Enemy
             {
                 Vector2 dir = _target.transform.position - transform.position;
                 GoblinProjectile createdProjectile = Instantiate<GoblinProjectile>(shotPrefab, shotPoint.position, Quaternion.identity);
-                createdProjectile.SetDestination(dir);
+                createdProjectile.SetDestination(dir + YOffset);
                 _timePassed = _shootTime;
                 
             }

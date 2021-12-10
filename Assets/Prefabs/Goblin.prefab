@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7104988368600030305}
   - component: {fileID: 7104988368600030304}
   - component: {fileID: 7104988368600030311}
+  - component: {fileID: 7948164748035510227}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -105,6 +106,25 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!95 &7948164748035510227
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7104988368600030310}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1216fff8dd5ffe84eaf4b59f203413c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7104988370199381978
 GameObject:
   m_ObjectHideFlags: 0

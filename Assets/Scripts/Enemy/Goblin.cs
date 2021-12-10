@@ -20,13 +20,14 @@ public class Goblin : Enemy
     void Start()
     {
         _timePassed = _shootTime;
+        _myAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {     
         FieldOfView();
-        Shoot();
+        //Shoot();
     }
 
     public override void TakeDamage()
@@ -42,7 +43,6 @@ public class Goblin : Enemy
         {
             _target = item; 
             Debug.Log("Detecto");
-            //cambiar mi transform.left a la dir;
         }  
 
         if(_target != null)
@@ -53,11 +53,13 @@ public class Goblin : Enemy
             if(hit == false)
             {
                 canShoot = true;
+                _myAnim.SetBool("IsAttacking", true);
             }
         }
         else
         {
             canShoot = false;
+            _myAnim.SetBool("IsAttacking", false);
         }
     }
 
@@ -65,18 +67,18 @@ public class Goblin : Enemy
     {
         if(canShoot)
         {
-            if(_timePassed > 0)
-            {
-                _timePassed -= Time.deltaTime;
-            }
-            else
-            {
+            //if(_timePassed > 0)
+            //{
+            //    _timePassed -= Time.deltaTime;
+            //}
+            //else
+            //{
                 Vector2 dir = _target.transform.position - transform.position;
                 GoblinProjectile createdProjectile = Instantiate<GoblinProjectile>(shotPrefab, shotPoint.position, Quaternion.identity);
                 createdProjectile.SetDestination(dir + YOffset);
-                _timePassed = _shootTime;
+                //_timePassed = _shootTime;
                 
-            }
+            //}
            
         }
         

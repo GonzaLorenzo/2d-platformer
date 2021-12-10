@@ -18836,6 +18836,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5062912828332319852, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
+      propertyPath: canvasManager
+      value: 
+      objectReference: {fileID: 1548064548}
+    - target: {fileID: 5062912828332319852, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
+        type: 3}
       propertyPath: HealthIcons.Array.data[0]
       value: 
       objectReference: {fileID: 655059695}
@@ -18849,25 +18854,10 @@ PrefabInstance:
       propertyPath: HealthIcons.Array.data[2]
       value: 
       objectReference: {fileID: 1205522445}
-    - target: {fileID: 5062912828332319852, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: canvasManager
-      value: 
-      objectReference: {fileID: 1548064548}
     - target: {fileID: 5062912828332319862, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5062912828332319863, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5062912828831044078, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}
@@ -18885,28 +18875,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7256400263428184921, guid: d375591844f482146b296cddb5d17cb7,
         type: 3}
-      propertyPath: sounds.Array.size
+      propertyPath: sounds.Array.data[2].volume
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7256400263428184921, guid: d375591844f482146b296cddb5d17cb7,
-        type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: CoinSound
       objectReference: {fileID: 0}
     - target: {fileID: 7256400263428184926, guid: d375591844f482146b296cddb5d17cb7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.4806013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7256400263428184926, guid: d375591844f482146b296cddb5d17cb7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.125685
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7256400263428184926, guid: d375591844f482146b296cddb5d17cb7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.61133
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7256400263428184926, guid: d375591844f482146b296cddb5d17cb7,
         type: 3}

@@ -18,6 +18,7 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         CollectedAmount += CoinValue;
+        AudioManager.instance.Play("CoinSound");
         myAnimator.SetTrigger("DestroyCoin");
     }
 

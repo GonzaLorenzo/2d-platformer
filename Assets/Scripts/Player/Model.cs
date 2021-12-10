@@ -70,17 +70,20 @@ public class Model : MonoBehaviour
     {
         if(canTakeDamage)
         {
+            
             _currentHp -= dmg;
 
             onGetDmgHUD(_currentHp);
 
             if(_currentHp <= 0)
             {
+                AudioManager.instance.Play("PlayerDeath");
                 Death();
                 _rb.velocity = Vector2.zero;
             }
             else
             {
+                AudioManager.instance.Play("PlayerHurt");
                 StartCoroutine(DoKnockback(knockbackTime));
             }
         }

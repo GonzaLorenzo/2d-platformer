@@ -23,7 +23,8 @@ public class Mushroom : Enemy
         canMove = false;
         _myCollider.enabled = false;
         _myBoxCollider.enabled = false;
-        _myAnim.SetTrigger("IsDead");       
+        AudioManager.instance.Play("EnemyDie");
+        _myAnim.SetTrigger("IsDead");    
     }
 
     public void DestroyEnemy()

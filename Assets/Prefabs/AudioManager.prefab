@@ -43,4 +43,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e0ed3223b9d0b4284bc7410c686ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: CoinSound
+    clip: {fileID: 8300000, guid: 921401434dd7d22479d00616b08370a1, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDie
+    clip: {fileID: 8300000, guid: 61814fa2981de7440a046f74b4e4c48b, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: aafac835041acf343819f65400ec5004, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 396cbbbc53949704fa2d12297223b4e2, type: 3}
+    volume: 0.45
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Music
+    clip: {fileID: 8300000, guid: a92bc16d83924804e9a55a6391d55922, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

@@ -15418,20 +15418,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mushroomPref: {fileID: 5541190255275613584, guid: e8e072d13ba0b8243b5c80df1d60c542,
     type: 3}
+  batPref: {fileID: 3047826306842865105, guid: 6fa7f1c1ef05bb54db10479b196500e0, type: 3}
   goblinPref: {fileID: 0}
-  batPref: {fileID: 0}
-  enemy1Pos: {x: 5.5, y: 0.5, z: 0}
-  enemy2Pos: {x: 18.5, y: -0.5, z: 0}
-  enemy3Pos: {x: 35.5, y: -0.5, z: 0}
-  enemy1Waypoints:
+  FirstLvlEnemy1Pos: {x: 5.05, y: 0.5, z: 0}
+  FirstLvlEnemy2Pos: {x: 18.5, y: -0.5, z: 0}
+  FirstLvlEnemy3Pos: {x: 35.5, y: -0.5, z: 0}
+  FirstLvlEnemy1Waypoints:
   - {fileID: 1779716829}
   - {fileID: 2126696973}
-  enemy2Waypoints:
+  FirstLvlEnemy2Waypoints:
   - {fileID: 106510324}
   - {fileID: 940784315}
-  enemy3Waypoints:
+  FirstLvlEnemy3Waypoints:
   - {fileID: 563863693}
   - {fileID: 428786331}
+  SecondLvlEnemy1Pos: {x: 0, y: 0, z: 0}
+  SecondLvlEnemy2Pos: {x: 0, y: 0, z: 0}
+  SecondLvlEnemy3Pos: {x: 0, y: 0, z: 0}
+  SecondLvlEnemy1Waypoints: []
+  SecondLvlEnemy2Waypoints: []
+  SecondLvlEnemy3Waypoints: []
+  ThirdLvlEnemy1Pos: {x: 0, y: 0, z: 0}
+  ThirdLvlEnemy2Pos: {x: 0, y: 0, z: 0}
+  ThirdLvlEnemy3Pos: {x: 0, y: 0, z: 0}
+  ThirdLvlEnemy1Waypoints: []
+  ThirdLvlEnemy2Waypoints: []
+  ThirdLvlEnemy3Waypoints: []
 --- !u!4 &1532499092
 Transform:
   m_ObjectHideFlags: 0
@@ -16127,7 +16139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779716828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.03, y: 0.5, z: 0}
+  m_LocalPosition: {x: 5.05, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 450856240}
@@ -16810,22 +16822,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 751168821}
     m_Modifications:
-    - target: {fileID: 2048422382, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048422382, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}
-      propertyPath: m_Size.x
-      value: 0.88787484
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048422382, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.69567895
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048422382, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}
-      propertyPath: m_Size.y
-      value: 2.3913584
-      objectReference: {fileID: 0}
     - target: {fileID: 5062912828332319851, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16900,11 +16896,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5062912828332319863, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a47f76bcd62e214d9fbb6c7d63f97f6, type: 3}

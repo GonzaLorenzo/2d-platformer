@@ -16,7 +16,7 @@ public class ScreenGO : IScreen
 
         foreach(var b in root.GetComponentsInChildren<Behaviour>())
         {
-            
+
         }
     }
 
@@ -35,7 +35,11 @@ public class ScreenGO : IScreen
         foreach(var b in root.GetComponentsInChildren<Behaviour>())
         {
             _before[b] = b.enabled;
-            b.enabled = false;
+
+            if(b != root.GetComponentInChildren<CapsuleCollider2D>())
+            {
+                b.enabled = false;
+            }
         }
     }
 

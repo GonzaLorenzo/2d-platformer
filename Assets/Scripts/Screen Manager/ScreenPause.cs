@@ -19,6 +19,15 @@ public class ScreenPause : MonoBehaviour, IScreen
             button.interactable = false;
         }
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            BTN_Back();
+        }    
+    }
+
     public void BTN_Back()
     {
         ScreenManager.Instance.Pop();

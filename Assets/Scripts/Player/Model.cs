@@ -129,9 +129,10 @@ public class Model : MonoBehaviour
                 isJumping = false;
             }    
 
-            if(Input.GetKeyUp(KeyCode.X))
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
-                StartCoroutine(DoKnockback(knockbackTime));
+                var screenPause = Instantiate(Resources.Load<ScreenPause>("PauseCanvas"));
+                ScreenManager.Instance.Push(screenPause);
             }    
         }
     }
@@ -157,7 +158,7 @@ public class Model : MonoBehaviour
     public void Death()
     {
         canMove = false;
-        onDeath();
+        onDeath();   
     }
     
     public IEnumerator DoKnockback(float knockbackTime)

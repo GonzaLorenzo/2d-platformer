@@ -10,15 +10,6 @@ public class Config : MonoBehaviour
     {
         ScreenManager.Instance.Push(new ScreenGO(mainGame));
     }
-
-    //void Update()
-    //{      
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-            //var screenWin = Instantiate(Resources.Load<ScreenWin>("WinCanvas"));
-            //ScreenManager.Instance.Push(screenWin);
-        //}
-    //}
 }
 
 

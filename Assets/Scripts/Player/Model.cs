@@ -6,6 +6,7 @@ public class Model : MonoBehaviour
 {
     IController _myController;
     ModelController _myStats;
+    CapsuleCollider2D _myCollider;
     private float baseHp = 3;
     private bool canTakeDamage = true;
     private float _currentHp;
@@ -44,6 +45,7 @@ public class Model : MonoBehaviour
     {
         _currentHp = baseHp;
         _rb = GetComponent<Rigidbody2D>();
+        _myCollider = GetComponent<CapsuleCollider2D>();
     }
 
     void Start()
@@ -163,7 +165,10 @@ public class Model : MonoBehaviour
     public void Death()
     {
         canMove = false;
-        onDeath();   
+        onDeath();
+
+        _rb.gravityScale = 0;
+        _myCollider.enabled = false;
     }
     
     public IEnumerator DoKnockback(float knockbackTime)

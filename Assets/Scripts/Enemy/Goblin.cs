@@ -17,8 +17,10 @@ public class Goblin : Enemy
     private float _timePassed;
     private float _shootTime = 1.5f;
     private Vector2 YOffset = new Vector2(0,0.4f);
+    private GameObject parent;
     void Start()
     {
+        parent = GameObject.Find("MainGame");
         _timePassed = _shootTime;
         _myAnim = GetComponent<Animator>();
     }
@@ -74,7 +76,7 @@ public class Goblin : Enemy
             //else
             //{
                 Vector2 dir = _target.transform.position - transform.position;
-                GoblinProjectile createdProjectile = Instantiate<GoblinProjectile>(shotPrefab, shotPoint.position, Quaternion.identity);
+                GoblinProjectile createdProjectile = Instantiate<GoblinProjectile>(shotPrefab, shotPoint.position, Quaternion.identity, parent.transform);
                 createdProjectile.SetDestination(dir + YOffset);
                 //_timePassed = _shootTime;
                 

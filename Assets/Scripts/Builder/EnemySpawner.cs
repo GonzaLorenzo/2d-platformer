@@ -22,10 +22,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Second Level")]
     public Vector3 SecondLvlEnemy1Pos;
     public Vector3 SecondLvlEnemy2Pos;
-    public Vector3 SecondLvlEnemy3Pos;
     public List<Transform> SecondLvlEnemy1Waypoints;
-    public List<Transform> SecondLvlEnemy2Waypoints;
-    public List<Transform> SecondLvlEnemy3Waypoints;    
+    public List<Transform> SecondLvlEnemy2Waypoints;  
 
     [Header("Third Level")]
     public Vector3 ThirdLvlEnemy1Pos;   
@@ -68,11 +66,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void InstantiateSecondLevel()
     {
-        //Instantiate(mushroomPref, parent.transform).SetPos(enemy1Pos).SetWaypoints(enemy1Waypoints);
+        Instantiate(batPref, parent.transform).SetPos(SecondLvlEnemy1Pos).SetWaypoints(SecondLvlEnemy1Waypoints);
 
-        //Instantiate(mushroomPref, parent.transform).SetPos(enemy2Pos).SetWaypoints(enemy2Waypoints);
-
-        //Instantiate(mushroomPref, parent.transform).SetPos(enemy3Pos).SetWaypoints(enemy3Waypoints);
+        Instantiate(mushroomPref, parent.transform).SetPos(SecondLvlEnemy2Pos).SetWaypoints(SecondLvlEnemy2Waypoints);
     }
 
     private void InstantiateThirdLevel()

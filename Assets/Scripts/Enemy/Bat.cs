@@ -6,7 +6,7 @@ public class Bat : Enemy
 {
     Animator _myAnim;
     private float _timePassed;
-    private float _shootTime = 3.5f;
+    private float _shootTime = 1.5f;
     [SerializeField]
     private Projectile shotPrefab;
     [SerializeField]
